@@ -1,0 +1,18 @@
+.jumbotron{
+	align-content: center; 
+	background-image:url("https://c1.staticflickr.com/3/2561/3802348922_e99184a252_b.jpg");
+}
+
+.lead{
+	color: white;
+	background-color: black;
+}
+
+body{
+	background-color: blue;
+}
+
+p{
+	color: white;
+	font-size: 40px;
+}

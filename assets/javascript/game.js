@@ -6,41 +6,52 @@ var fourth = document.getElementById('fourth');
 var fifth = document.getElementById('fifth');
 var sixth = document.getElementById('sixth');
 var seventh = document.getElementById('seventh');
+var hint = document.getElementById('hint');
 var turns = 0; 
 var loser = []; document.getElementById('l1');
 var winners =[];
+var winners1 = [];
 var choices = [first,second,third,fourth,fifth,sixth,seventh];
-var words =["grayson", "mcconnel"];
+var cruzHint = "ran for President";
+
 var g1 = false;
-var grayson = ["g","r","a","y","s","o","n"];
+
 
 document.onkeyup = function(event) {
 	var userGuess = event.key;
-	var userGuess2 = event.key;
+
 
 function startgame(){
+		hint.textContent = "hit his wife";
+		var grayson = ["g","r","a","y","s","o","n"];
 		console.log("here is " + userGuess);
     	for (var i = 0; i < grayson.length; i++) {
-        while (userGuess === grayson[i]) {
+    		console.log(grayson[i]);
+        if (userGuess === grayson[i]) {
             winners.push(userGuess);
             choices[i].textContent = userGuess;     
-    		}
-      }
-	
+    		}else{
+        		loser.push (userGuess);
+	   			console.log(loser);
+	   			turns++;
+      }	
+}
+      if (winners.includes("g") && winners.includes("r") && winners.includes("a") && winners.includes("y") && winners.includes("s")&& winners.includes("o")&& winners.includes("n")) {
+	alert("Alan Grayson");
+	first.textContent = "_";
+	second.textContent = "_";
+	third.textContent = "_";
+	fourth.textContent = "_";
+	fifth.textContent = " _";
+	sixth.textContent = " _";
+	seventh.textContent = " _";
+	winners = [];
+	cruz = [];
+	g1 = true;
+}	
 }//Grayson function
 
 function game1(){
-
-	
-
- //   	if (userGuess !== "c" && userGuess !== "r" && userGuess !== "u" && userGuess !== "z") {
- //   		loser.push (userGuess);
- //   		console.log(turns);
- //   		console.log(loser);
- //   		l1.textContent = "   "+ loser;
- //   		turns++;
- //   	}
- //   
 
  		for (var i = 0; i < cruz.length; i++) {
         if (userGuess === cruz[i]) {
@@ -49,7 +60,6 @@ function game1(){
         }else{
         	loser.push (userGuess);
 	   		console.log(loser);
-	   		l1.textContent = "   "+ loser[i];
 	   		turns++;
 
         }if (turns == 10000) {
@@ -63,24 +73,28 @@ function game1(){
 
    	if (winners.includes("c") && winners.includes("r") && winners.includes("u") && winners.includes("z")) {
 	alert("you the  man!!!");
-	word = words[0].split();
 	first.textContent = "_";
 	second.textContent = "_";
 	third.textContent = "_";
 	fourth.textContent = "_";
-	fifth.textContent = "_";
-	sixth.textContent = "_";
-	seventh.textContent = "_";
+	fifth.textContent = " _";
+	sixth.textContent = " _";
+	seventh.textContent = " _";
 	winners = [];
+	turns = 0;
+	loser = [];
 	cruz = [];
 	g1 = true;
-
-	startgame(userGuess2);
 
 }
 }
 
 game1();
+l1.textContent = " ,"+ loser;
+if (g1){
+	startgame();
+	l1.textContent = " ,"+ loser;
+}
 }
 // if (g1 = true) {
 // 	startgame();}else{
@@ -113,6 +127,14 @@ game1();
 //     }
         
 
+ //   	if (userGuess !== "c" && userGuess !== "r" && userGuess !== "u" && userGuess !== "z") {
+ //   		loser.push (userGuess);
+ //   		console.log(turns);
+ //   		console.log(loser);
+ //   		l1.textContent = "   "+ loser;
+ //   		turns++;
+ //   	}
+		 
 
 	
 // }
