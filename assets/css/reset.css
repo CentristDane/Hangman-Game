@@ -1,6 +1,7 @@
 .jumbotron{
 	align-content: center; 
-	background-image:url("https://c1.staticflickr.com/3/2561/3802348922_e99184a252_b.jpg");
+	background-image:url("https://c1.staticflickr.com/3/2561/3802348922_e99184a252_b.jpg")
+
 }
 
 .lead{
@@ -15,4 +16,9 @@ body{
 p{
 	color: white;
 	font-size: 40px;
+}
+
+h3{
+	color: black;
+	
 }

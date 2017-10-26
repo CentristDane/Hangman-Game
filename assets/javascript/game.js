@@ -13,63 +13,77 @@ var winners =[];
 var winners1 = [];
 var choices = [first,second,third,fourth,fifth,sixth,seventh];
 var cruzHint = "ran for President";
+var tries = document.getElementById('tries');
 
 var g1 = false;
+
 
 
 document.onkeyup = function(event) {
 	var userGuess = event.key;
 
 
+
 function startgame(){
 		hint.textContent = "hit his wife";
 		var grayson = ["g","r","a","y","s","o","n"];
 		console.log("here is " + userGuess);
+		turns = 0;
+	
     	for (var i = 0; i < grayson.length; i++) {
     		console.log(grayson[i]);
         if (userGuess === grayson[i]) {
             winners.push(userGuess);
             choices[i].textContent = userGuess;     
-    		}else{
+    		}
+	}
+		if (userGuess != "g" && userGuess != "r" && userGuess != "a" && userGuess != "y" && userGuess != "s" && userGuess != "o" && userGuess != "n") {  
         		loser.push (userGuess);
 	   			console.log(loser);
 	   			turns++;
+	   			l1.textContent = "    "+ loser;
+	   			
       }	
-}
       if (winners.includes("g") && winners.includes("r") && winners.includes("a") && winners.includes("y") && winners.includes("s")&& winners.includes("o")&& winners.includes("n")) {
-	alert("Alan Grayson");
-	first.textContent = "_";
-	second.textContent = "_";
-	third.textContent = "_";
-	fourth.textContent = "_";
-	fifth.textContent = " _";
-	sixth.textContent = " _";
-	seventh.textContent = " _";
-	winners = [];
-	cruz = [];
-	g1 = true;
-}	
+			alert("Alan Grayson");
+			first.textContent = "_";
+			second.textContent = "_";
+			third.textContent = "_";
+			fourth.textContent = "_";
+			fifth.textContent = " ";
+			sixth.textContent = " ";
+			seventh.textContent = " ";
+			turns = 0;
+			winners = [];
+			cruz = [];
+			g1 = true;
+	}	
 }//Grayson function
 
 function game1(){
+
+
 
  		for (var i = 0; i < cruz.length; i++) {
         if (userGuess === cruz[i]) {
             winners.push(userGuess);
             choices[i].textContent = userGuess;
-        }else{
-        	loser.push (userGuess);
-	   		console.log(loser);
-	   		turns++;
-
-        }if (turns == 10000) {
+        }if (turns == 10) {
 	   		alert("game over!!!!!!!!!!")
 	   		first.textContent = "_";
 	   		second.textContent = "_";
 	   		third.textContent = "_";
 	   		fourth.textContent = "_";
    	}
-    }
+    }if (userGuess != "c" && userGuess != "r" && userGuess != "u" && userGuess != "z" ){
+        	loser.push (userGuess);
+	   		console.log(loser);
+	   		turns++;
+	   		l1.textContent = "  " + loser;
+	   		document.getElementById("tries").innerHTML = turns;
+	   		
+        }
+
 
    	if (winners.includes("c") && winners.includes("r") && winners.includes("u") && winners.includes("z")) {
 	alert("you the  man!!!");
@@ -80,6 +94,7 @@ function game1(){
 	fifth.textContent = " _";
 	sixth.textContent = " _";
 	seventh.textContent = " _";
+	userGuess = "  ";
 	winners = [];
 	turns = 0;
 	loser = [];
@@ -89,11 +104,15 @@ function game1(){
 }
 }
 
+
+if (!g1) {
 game1();
-l1.textContent = " ,"+ loser;
+
+}
+
 if (g1){
 	startgame();
-	l1.textContent = " ,"+ loser;
+	
 }
 }
 // if (g1 = true) {
