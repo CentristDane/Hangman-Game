@@ -3,57 +3,161 @@ var first = document.getElementById('first');
 var second = document.getElementById('second');
 var third = document.getElementById('third');
 var fourth = document.getElementById('fourth');
+var fifth = document.getElementById('fifth');
+var sixth = document.getElementById('sixth');
+var seventh = document.getElementById('seventh');
 var turns = 0; 
 var loser = []; document.getElementById('l1');
-
-
-
-
+var winners =[];
+var choices = [first,second,third,fourth,fifth,sixth,seventh];
+var words =["grayson", "mcconnel"];
+var g1 = false;
+var grayson = ["g","r","a","y","s","o","n"];
 
 document.onkeyup = function(event) {
-
 	var userGuess = event.key;
+	var userGuess2 = event.key;
 
-	if (userGuess === cruz[0]) {
-            first.textContent = "c";
-        }
-    if (userGuess === cruz[1]) {
-            second.textContent = "r";
-        }
-    if (userGuess === cruz[2]) {
-            third.textContent = "u";
-        }
-    if (userGuess === cruz[3]) {
-       		fourth.textContent = "z";
-   		}
-   	if (userGuess !== "c" && userGuess !== "r" && userGuess !== "u" && userGuess !== "z") {
-   		loser.push (userGuess);
-   		console.log(turns);
-   		console.log(loser);
-   		l1.textContent = loser;
-   		turns++;
-   	}
-   	if (turns == 10) {
-   		alert("game over!!!!!!!!!!")
-   		first.textContent = "_";
-   		second.textContent = "_";
-   		third.textContent = "_";
-   		fourth.textContent = "_";
-   	}
+function startgame(){
+		console.log("here is " + userGuess);
+    	for (var i = 0; i < grayson.length; i++) {
+        while (userGuess === grayson[i]) {
+            winners.push(userGuess);
+            choices[i].textContent = userGuess;     
+    		}
+      }
 	
-} 
+}//Grayson function
+
+function game1(){
+
+	
+
+ //   	if (userGuess !== "c" && userGuess !== "r" && userGuess !== "u" && userGuess !== "z") {
+ //   		loser.push (userGuess);
+ //   		console.log(turns);
+ //   		console.log(loser);
+ //   		l1.textContent = "   "+ loser;
+ //   		turns++;
+ //   	}
+ //   
+
+ 		for (var i = 0; i < cruz.length; i++) {
+        if (userGuess === cruz[i]) {
+            winners.push(userGuess);
+            choices[i].textContent = userGuess;
+        }else{
+        	loser.push (userGuess);
+	   		console.log(loser);
+	   		l1.textContent = "   "+ loser[i];
+	   		turns++;
+
+        }if (turns == 10000) {
+	   		alert("game over!!!!!!!!!!")
+	   		first.textContent = "_";
+	   		second.textContent = "_";
+	   		third.textContent = "_";
+	   		fourth.textContent = "_";
+   	}
+    }
+
+   	if (winners.includes("c") && winners.includes("r") && winners.includes("u") && winners.includes("z")) {
+	alert("you the  man!!!");
+	word = words[0].split();
+	first.textContent = "_";
+	second.textContent = "_";
+	third.textContent = "_";
+	fourth.textContent = "_";
+	fifth.textContent = "_";
+	sixth.textContent = "_";
+	seventh.textContent = "_";
+	winners = [];
+	cruz = [];
+	g1 = true;
+
+	startgame(userGuess2);
+
+}
+}
+
+game1();
+}
+// if (g1 = true) {
+// 	startgame();}else{
+// game1();}
 
 
-// function checkletter() {
+// /////game 2
+// 	function startgame(){
+// 		word = words[0].split();
+// 		first.textContent = "_";
+// 		second.textContent = "_";
+// 		third.textContent = "_";
+// 		fourth.textContent = "_";
+// 		fifth.textContent = "_";
+// 		sixth.textContent = "_";
+// 		seventh.textContent = "_";
+// 		winners = [];
+// 		cruz = [];
 
+// 		g1 = false;
 
-//     for (var i = 0; i < grayson.length; i++) {
-
+// 	function checkletter(userGuess) {
+// 		console.log("here is " + userGuess);
+//     	for (var i = 0; i < grayson[0].length; i++) {
 //         if (userGuess === grayson[i]) {
-//             console.log("yay");
+//         	console.log("here is " + userGuess);
+//             winners.push(userGuess);
+//             choices[i].textContent = userGuess;
 //         }
 //     }
+        
+
+
+	
 // }
+// checkletter();
+// }// end of game 2
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////
+
+
+
+// }
+
+	// function checkletter(userGuess) {
+ //    for (var i = 0; i < cruz.length; i++) {
+ //     	   if (userGuess === cruz[i]) {
+ //            winners.push(userGuess);
+ //            choices[i].textContent = userGuess
+ //        	}
+ //    	}
+ //    }
+//         if (userGuess !== "c" && userGuess !== "r" && userGuess !== "u" && userGuess !== "z") {
+// 	   		loser.push (userGuess);
+// 	   		console.log(turns);
+// 	   		console.log(loser);
+// 	   		l1.textContent = "   "+ loser;
+// 	   		turns++;
+//    		}
+//    		if (turns == 10) {
+// 	   		alert("game over!!!!!!!!!!")
+// 	   		first.textContent = "_";
+// 	   		second.textContent = "_";
+// 	   		third.textContent = "_";
+// 	   		fourth.textContent = "_";
+// 	   	}
+	    
+//     winnerCheck();
 
 // }
 
@@ -67,3 +171,22 @@ document.onkeyup = function(event) {
 // 			}	
 
 // 	}
+
+
+	// if (userGuess === cruz[0]) {
+ //            first.textContent = "c";
+ //            winners.push(userGuess);
+ //            console.log(winners);
+ //        }
+ //    if (userGuess === cruz[1]) {
+ //            second.textContent = "r";
+ //            winners.push(userGuess);
+ //        }
+ //    if (userGuess === cruz[2]) {
+ //            third.textContent = "u";
+ //            winners.push(userGuess);
+ //        }
+ //    if (userGuess === cruz[3]) {
+ //       		fourth.textContent = "z";
+ //       		winners.push(userGuess);
+ //   		}
