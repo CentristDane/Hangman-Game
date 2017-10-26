@@ -10,24 +10,36 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3">Congressional Hangman Game</h1>
-    <p class="lead">Guess the last name of a member of congress based on the hint of something shitty they have done.</p>
+    <p class="lead">Guess the last name of a member of congress based on random fact.</p>
   </div>
 </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<p> <span id="first">_</span> <span id="second">_</span> <span id="third">_</span> <span id="fourth">_</span> <span id="fifth"></span><span id="sixth"></span><span id="seventh"></span> </p>
+			<br>
+			<br>
+			<p>Hint: <span id="hint"> Wanted to be President and looks like Pee-Wee Herman</span></p>
+			<script src="./assets/javascript/game.js" type="text/javascript">
+			</script>
+			<h3>Letters you have used</h3>
+			<p> <span id="l1">  </span></p>
+			<br>
+			<br>
+			<h3>Turns (out of 10)</h3>
+			<p> <span id="tries">  </span></p>
+		</div>	
+		<div class="col-md-4">
+				<div class="card" style="float: right;">
+				  <div class="card-body">
+				    <h3>Wins</h3>
+					<p style="color: black"> <span id="wins">  </span></p>
+				  </div>
+			  </div>
+		</div>	  
+	</div>
+</div>
 
-<p> <span id="first">_</span> <span id="second">_</span> <span id="third">_</span> <span id="fourth">_</span> <span id="fifth"></span><span id="sixth"></span><span id="seventh"></span> </p>
-
-<br>
-<br>
-<p>Hint: <span id="hint"> wanted to be pres  </span></p>
-
-<script src="./assets/javascript/game.js" type="text/javascript">
-</script>
-<h3>Letters you have used</h3>
-<p> <span id="l1">  </span></p>
-<br>
-<br>
-<h3>Turns (out of 10)</h3>
-<p> <span id="tries">  </span></p>
 
 </body>
 </html>

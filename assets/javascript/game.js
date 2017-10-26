@@ -1,4 +1,5 @@
 var cruz = ["c","r","u","z"]
+var reid = ["r","e","i","d"]
 var first = document.getElementById('first');
 var second = document.getElementById('second');
 var third = document.getElementById('third');
@@ -14,21 +15,67 @@ var winners1 = [];
 var choices = [first,second,third,fourth,fifth,sixth,seventh];
 var cruzHint = "ran for President";
 var tries = document.getElementById('tries');
+var g1 = true;
+var g2 = false;
+var g3 = false;
 
-var g1 = false;
-
-
+//alert("Press any key to start!");
 
 document.onkeyup = function(event) {
 	var userGuess = event.key;
 
+function finalGame(){
+document.getElementById("tries").innerHTML = turns;
+ 		for (var i = 0; i < reid.length; i++) {
+		        if (userGuess === reid[i]) {
+		            winners.push(userGuess);
+		            choices[i].textContent = userGuess;
+		        }
+		        if (turns == 10) {
+			   		alert("game over!!!!!!!!!!")
+			   		first.textContent = "_";
+			   		second.textContent = "_";
+			   		third.textContent = "_";
+			   		fourth.textContent = "_";
+		  	 	}
+   		 }	
+		   	 	if (userGuess != "r" && userGuess != "e" && userGuess != "i" && userGuess != "d" ){
+		        	loser.push (userGuess);
+			   		console.log(loser);
+			   		turns++;
+			   		l1.textContent = "  " + loser;
+			   		document.getElementById("tries").innerHTML = turns;
+			   		
+		        }
 
+
+			   	if (winners.includes("r") && winners.includes("e") && winners.includes("i") && winners.includes("d")) {
+						alert("you the  man!!!");
+						first.textContent = "_";
+						second.textContent = "_";
+						third.textContent = "_";
+						fourth.textContent = "_";
+						fifth.textContent = " _";
+						sixth.textContent = " _";
+						seventh.textContent = " _";
+						userGuess = "  ";
+						winners = [];
+						turns = 0;
+						loser = [];
+						cruz = [];
+						
+
+			}
+}
+
+
+////final game
 
 function startgame(){
 		hint.textContent = "hit his wife";
 		var grayson = ["g","r","a","y","s","o","n"];
 		console.log("here is " + userGuess);
-		turns = 0;
+		//turns = 0;
 	
     	for (var i = 0; i < grayson.length; i++) {
     		console.log(grayson[i]);
@@ -42,8 +89,16 @@ function startgame(){
 	   			console.log(loser);
 	   			turns++;
 	   			l1.textContent = "    "+ loser;
+	   			document.getElementById("tries").innerHTML = turns;
 	   			
-      }	
+      	}	
+     	if (turns == 10) {
+	   		alert("game over!!!!!!!!!!")
+	   		first.textContent = "_";
+	   		second.textContent = "_";
+	   		third.textContent = "_";
+	   		fourth.textContent = "_";
+   		}
       if (winners.includes("g") && winners.includes("r") && winners.includes("a") && winners.includes("y") && winners.includes("s")&& winners.includes("o")&& winners.includes("n")) {
 			alert("Alan Grayson");
 			first.textContent = "_";
@@ -55,8 +110,11 @@ function startgame(){
 			seventh.textContent = " ";
 			turns = 0;
 			winners = [];
+			userGuess = " ";
+			loser = [];
 			cruz = [];
-			g1 = true;
+			g2 = false;
+			g3 = true;
 	}	
 }//Grayson function
 
@@ -86,33 +144,39 @@ function game1(){
 
 
    	if (winners.includes("c") && winners.includes("r") && winners.includes("u") && winners.includes("z")) {
-	alert("you the  man!!!");
-	first.textContent = "_";
-	second.textContent = "_";
-	third.textContent = "_";
-	fourth.textContent = "_";
-	fifth.textContent = " _";
-	sixth.textContent = " _";
-	seventh.textContent = " _";
-	userGuess = "  ";
-	winners = [];
-	turns = 0;
-	loser = [];
-	cruz = [];
-	g1 = true;
+			alert("you the  man!!!");
+			first.textContent = "_";
+			second.textContent = "_";
+			third.textContent = "_";
+			fourth.textContent = "_";
+			fifth.textContent = " _";
+			sixth.textContent = " _";
+			seventh.textContent = " _";
+			userGuess = "  ";
+			winners = [];
+			turns = 0;
+			loser = [];
+			cruz = [];
+			g2 = true;
+			g1 = false;
 
 }
 }
 
 
-if (!g1) {
+if (g1) {
 game1();
-
+document.getElementById("wins").innerHTML = 0;
 }
 
-if (g1){
+if (g2){
 	startgame();
-	
+	document.getElementById("wins").innerHTML = 1;
+}
+
+if (g3){
+	finalGame();
+	document.getElementById("wins").innerHTML = 2;
 }
 }
 // if (g1 = true) {
