@@ -19,13 +19,14 @@ var g1 = true;
 var g2 = false;
 var g3 = false;
 
-//alert("Press any key to start!");
+alert("Press any key to start!");
 
 document.onkeyup = function(event) {
 	var userGuess = event.key;
 
 function finalGame(){
 document.getElementById("tries").innerHTML = turns;
+	hint.textContent = "Former Las Vegas boxer.";
  		for (var i = 0; i < reid.length; i++) {
 		        if (userGuess === reid[i]) {
 		            winners.push(userGuess);
@@ -50,7 +51,8 @@ document.getElementById("tries").innerHTML = turns;
 
 
 			   	if (winners.includes("r") && winners.includes("e") && winners.includes("i") && winners.includes("d")) {
-						alert("you the  man!!!");
+						alert("Former Majority/Minority Leader Harry Reid!!!");
+						alert("You won the game!");
 						first.textContent = "_";
 						second.textContent = "_";
 						third.textContent = "_";
@@ -72,7 +74,7 @@ document.getElementById("tries").innerHTML = turns;
 ////final game
 
 function startgame(){
-		hint.textContent = "hit his wife";
+		hint.textContent = "Ran in the Democratic primary for U.S Senate. Dropped out a story about his history of domestic violence.";
 		var grayson = ["g","r","a","y","s","o","n"];
 		console.log("here is " + userGuess);
 		//turns = 0;
@@ -144,7 +146,7 @@ function game1(){
 
 
    	if (winners.includes("c") && winners.includes("r") && winners.includes("u") && winners.includes("z")) {
-			alert("you the  man!!!");
+			alert("Lyin' Ted Cruz");
 			first.textContent = "_";
 			second.textContent = "_";
 			third.textContent = "_";
